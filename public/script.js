@@ -13,6 +13,11 @@ var app = new Vue({
 	       return !item.completed;
       });
     },
+    completedItems: function() {
+      return this.items.filter(function(item) {
+	       return item.completed;
+      });
+    },
     filteredItems: function() {
       if (this.show === 'active')
 	     return this.items.filter(function(item) {
@@ -24,9 +29,9 @@ var app = new Vue({
 	     });
       return this.items;
     },
-    created: function() {
-      this.getItems();
-    },
+  },
+  created: function() {
+    this.getItems();
   },
   methods: {
     addItem: function() {
