@@ -46,7 +46,7 @@ var app = new Vue({
       }
       axios.post("http://localhost:3000/api/items", {
       	text: this.text,
-        priority: this.priority,
+        priority: 0,
       	completed: false
       }).then(response => {
       	this.text = "";
@@ -69,7 +69,7 @@ var app = new Vue({
      });
    },
    priorityUp: function(item) {
-     if (item.priority < 3) {
+     if (item.priority < 5) {
        item.priority++;
      }
      axios.put("http://localhost:3000/api/items/" + item.id, {
@@ -122,9 +122,12 @@ var app = new Vue({
    },
    sort: function() {
       var counter = 0;
+      counter = this.sortLoop(0, counter);
       counter = this.sortLoop(1, counter);
       counter = this.sortLoop(2, counter);
       counter = this.sortLoop(3, counter);
+      counter = this.sortLoop(4, counter);
+      counter = this.sortLoop(5, counter);
    },
    sortLoop: function(value, counter) {
       for (var i = 0; i < this.items.length; i++) {

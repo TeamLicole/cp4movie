@@ -8,22 +8,16 @@
   <body background="/images/movieBackground.jpg">
     <div id="app">
       <h1>Movie List</h1>
-      <p v-show="completedItems.length === 0">You haven't watched any movies, you uncultured swine!</p>
+      <p1 v-show="completedItems.length === 0">You haven't watched any movies, you uncultured swine!</p1>
       <form v-on:submit.prevent="addItem">
-      	<input type="text" v-model="text">
-        <select v-model="priority">
-          <option disabled value="">Please select the priority</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-        </select>
+      	<input type="text" v-model="text" placeholder="Movie to watch">
       	<button type="submit">Add</button>
       </form>
       <div class="controls">
       	<button v-on:click="showAll()">Show All</button>
-      	<button v-on:click="showActive()">Show Active</button>
-      	<button v-on:click="showCompleted()">Show Completed</button>
-      	<button v-on:click="deleteCompleted()">Delete Completed</button>
+      	<button v-on:click="showActive()">Show Unseen Movies</button>
+      	<button v-on:click="showCompleted()">Show Watched Movies</button>
+      	<button v-on:click="deleteCompleted()">Delete Watched Movies</button>
         <button v-on:click="sort()">Sort</button>
       </div>
       <ul>
@@ -31,7 +25,7 @@
       	  <input type="checkbox" v-model="item.completed" v-on:click="completeItem(item)" />
           <label v-bind:class="{ completed: item.completed }">{{ item.text }}</label>
           <div class="priorityDiv" v-bind="item.priority">
-            <p>Priority: {{ item.priority }}</p>
+            <p>Rating: {{ item.priority }} Stars</p>
             <button v-on:click="priorityUp(item)"><i class="up"></i></button>
             <button v-on:click="priorityDown(item)"><i class="down"></i></button>
           </div>
@@ -44,7 +38,9 @@
     <script src="/script.js"></script>
 
     <footer>
-      <a href="https://github.com/BYU-CS260-Winter-2018/lab-4-ntheurer">GitHub Classroom Link</a>
+      <p1>Presented by Lindsey Woolf and Nicole Theurer</p1>
+      <br>
+      <a href="https://github.com/TeamLicole/cp4movie">GitHub Link</a>
     </footer>
   </body>
 </html>
