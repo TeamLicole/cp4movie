@@ -44,7 +44,7 @@ var app = new Vue({
       else if (this.priority === "3") {
         this.priority = 3;
       }
-      axios.post("http://localhost:3000/api/items", {
+      axios.post("http://localhost:3001/api/items", {
       	text: this.text,
         priority: 0,
       	completed: false
@@ -57,7 +57,7 @@ var app = new Vue({
       });
     },
     completeItem: function(item) {
-     axios.put("http://localhost:3000/api/items/" + item.id, {
+     axios.put("http://localhost:3001/api/items/" + item.id, {
        text: item.text,
        completed: !item.completed,
        priority: item.priority,
@@ -72,7 +72,7 @@ var app = new Vue({
      if (item.priority < 5) {
        item.priority++;
      }
-     axios.put("http://localhost:3000/api/items/" + item.id, {
+     axios.put("http://localhost:3001/api/items/" + item.id, {
        text: item.text,
        completed: item.completed,
        priority: item.priority,
@@ -87,7 +87,7 @@ var app = new Vue({
       if (item.priority > 1) {
         item.priority--;
       }
-      axios.put("http://localhost:3000/api/items/" + item.id, {
+      axios.put("http://localhost:3001/api/items/" + item.id, {
         text: item.text,
         completed: item.completed,
         priority: item.priority,
@@ -99,7 +99,7 @@ var app = new Vue({
       });
    },
    deleteItem: function(item) {
-      axios.delete("http://localhost:3000/api/items/" + item.id).then(response => {
+      axios.delete("http://localhost:3001/api/items/" + item.id).then(response => {
       	this.getItems();
       	return true;
       }).catch(err => {
@@ -122,12 +122,12 @@ var app = new Vue({
    },
    sort: function() {
       var counter = 0;
-      counter = this.sortLoop(0, counter);
-      counter = this.sortLoop(1, counter);
-      counter = this.sortLoop(2, counter);
-      counter = this.sortLoop(3, counter);
-      counter = this.sortLoop(4, counter);
       counter = this.sortLoop(5, counter);
+      counter = this.sortLoop(4, counter);
+      counter = this.sortLoop(3, counter);
+      counter = this.sortLoop(2, counter);
+      counter = this.sortLoop(1, counter);
+      counter = this.sortLoop(0, counter);
    },
    sortLoop: function(value, counter) {
       for (var i = 0; i < this.items.length; i++) {
@@ -140,7 +140,7 @@ var app = new Vue({
       return counter;
    },
    sortMove: function(item, counter) {
-      axios.put("http://localhost:3000/api/items/" + item.id, {
+      axios.put("http://localhost:3001/api/items/" + item.id, {
       	text: item.text,
       	completed: item.completed,
         priority: item.priority,
@@ -157,7 +157,7 @@ var app = new Vue({
       this.drag = item;
    },
    dropItem: function(item) {
-      axios.put("http://localhost:3000/api/items/" + this.drag.id, {
+      axios.put("http://localhost:3001/api/items/" + this.drag.id, {
       	text: this.drag.text,
       	completed: this.drag.completed,
         priority: this.drag.priority,
@@ -171,7 +171,7 @@ var app = new Vue({
       });
    },
    getItems: function() {
-      axios.get("http://localhost:3000/api/items").then(response => {
+      axios.get("http://localhost:3001/api/items").then(response => {
       	this.items = response.data;
       	return true;
       }).catch(err => {
