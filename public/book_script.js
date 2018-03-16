@@ -47,6 +47,7 @@ var app = new Vue({
       axios.post("http://localhost:3001/api/items", {
       	text: this.text,
         priority: 0,
+        type: "bookType",
       	completed: false
       }).then(response => {
       	this.text = "";
@@ -61,6 +62,7 @@ var app = new Vue({
        text: item.text,
        completed: !item.completed,
        priority: item.priority,
+       type: "bookType",
        orderChange: false,
        sortBool: false,
      }).then(response => {
@@ -76,6 +78,7 @@ var app = new Vue({
        text: item.text,
        completed: item.completed,
        priority: item.priority,
+       type: "bookType",
        orderChange: false,
        sortBool: false,
      }).then(response => {
@@ -91,6 +94,7 @@ var app = new Vue({
         text: item.text,
         completed: item.completed,
         priority: item.priority,
+        type: "bookType",
         orderChange: false,
         sortBool: false
       }).then(response => {
@@ -144,6 +148,7 @@ var app = new Vue({
       	text: item.text,
       	completed: item.completed,
         priority: item.priority,
+        type: "bookType",
       	orderChange: true,
         sortBool: true,
       	orderTarget: counter
@@ -161,6 +166,7 @@ var app = new Vue({
       	text: this.drag.text,
       	completed: this.drag.completed,
         priority: this.drag.priority,
+        type: "bookType",
       	orderChange: true,
         sortBool: false,
       	orderTarget: item.id
@@ -171,7 +177,11 @@ var app = new Vue({
       });
    },
    getItems: function() {
-      axios.get("http://localhost:3001/api/items").then(response => {
+      // axios.get("http://localhost:3001/api/items", {
+      //   type: "bookType"
+      // })
+      axios.get("http://localhost:3001/api/items/" + "bookType", {
+      }).then(response => {
       	this.items = response.data;
       	return true;
       }).catch(err => {
