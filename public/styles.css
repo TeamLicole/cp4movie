@@ -6,19 +6,22 @@ body {
 
 h1 {
   color: white;
+  text-shadow: 3px 3px black;
 }
 
 p1 {
   color: white;
+  text-shadow: 2px 2px black;
+  font-size: 20px;
 }
 
 /* List */
 
-ul {
+#app ul {
     list-style: none;
 }
 
-li {
+#app li {
     background: #fff;
     width: 500px;
     min-height: 30px;
@@ -104,7 +107,7 @@ i {
     margin-top: 20px;
 }
 
-.header nav ul {
+nav ul {
 	list-style-type: none;
   margin: 0;
   padding: 0;
@@ -112,11 +115,11 @@ i {
 	background-color: grey;
 }
 
-.header nav li {
-	float: left;
+nav li {
+	float:left;
 }
 
-.header nav li a {
+nav li a {
 	display: block;
 	color: white;
 	text-align: center;
@@ -124,13 +127,11 @@ i {
 	text-decoration: none;
 }
 
-.header nav li a:hover {
+nav li a:hover {
 	background-color: #111;
   color: white;
 }
 
-.header nav a.active {
-  background-color: darkgrey;
-  color: black;
-}
-
+/* nav a.active {
+	background-color: #26007f;
+} */
