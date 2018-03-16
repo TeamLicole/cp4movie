@@ -3,15 +3,15 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css"/>
-    <title>Movies to Watch</title>
+    <title>TV Watch List</title>
   </head>
-  <body background="/images/movieBackground.jpg">
+  <body background="/images/tvstatic.jpg">
 
 <div id="header">    
     <nav>
     <ul>
-      <li><a class="active" href="index.html">Movies</a></li>
-      <li><a href="./tv.html">Television</a></li>
+      <li><a href="index.html">Movies</a></li>
+      <li><a class="active" href="./tv.html">Television</a></li>
       <li><a href="./books.html">Books</a></li>
       <li><a href="./podcasts.html">Podcast</a></li>
     </ul>
@@ -20,17 +20,17 @@
 
 
     <div id="app">
-      <h1>Movie List</h1>
-      <p1 v-show="completedItems.length === 0">You haven't watched any movies, you uncultured swine!</p1>
+      <h1>TV List</h1>
+      <p1 v-show="completedItems.length === 0">Have you never heard of Netflix?</p1>
       <form v-on:submit.prevent="addItem">
-      	<input type="text" v-model="text" placeholder="Movie to watch">
+      	<input type="text" v-model="text" placeholder="TV Show to watch">
       	<button type="submit">Add</button>
       </form>
       <div class="controls">
       	<button v-on:click="showAll()">Show All</button>
-      	<button v-on:click="showActive()">Show Unwatched Movies</button>
-      	<button v-on:click="showCompleted()">Show Watched Movies</button>
-      	<button v-on:click="deleteCompleted()">Delete Watched Movies</button>
+      	<button v-on:click="showActive()">Show Unwatched Shows</button>
+      	<button v-on:click="showCompleted()">Show Watched Shows</button>
+      	<button v-on:click="deleteCompleted()">Delete Watched Shows</button>
         <button v-on:click="sort()">Sort</button>
       </div>
       <ul>
@@ -48,7 +48,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha256-pU9euBaEcVl8Gtg+FRYCtin2vKLN8sx5/4npZDmY2VA=" crossorigin="anonymous"></script>
-    <script src="/script.js"></script>
+    <script src="/tv_script.js"></script>
 
     <footer>
       <p1>Presented by Lindsey Woolf and Nicole Theurer</p1>

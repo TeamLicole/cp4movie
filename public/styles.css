@@ -103,3 +103,34 @@ i {
 .controls {
     margin-top: 20px;
 }
+
+.header nav ul {
+	list-style-type: none;
+  margin: 0;
+  padding: 0;
+	overflow: hidden;
+	background-color: grey;
+}
+
+.header nav li {
+	float: left;
+}
+
+.header nav li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.header nav li a:hover {
+	background-color: #111;
+  color: white;
+}
+
+.header nav a.active {
+  background-color: darkgrey;
+  color: black;
+}
+
